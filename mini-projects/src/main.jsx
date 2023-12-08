@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import PasswordGenerator from "./App.jsx";
+import PasswordGenerator from "./PasswordGenerator.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
