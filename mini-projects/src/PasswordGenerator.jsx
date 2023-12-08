@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-function App() {
+function PasswordGenerator() {
   const [length, setLength] = useState(8);
 
   const [addNum, setAddNum] = useState(false);
@@ -26,14 +26,14 @@ function App() {
     setPassword(pass);
   }, [length, addNum, addChar, setPassword]);
 
-  useEffect(()=>{
+  useEffect(() => {
     generatePassword();
-  },[length , addChar , addNum])
+  }, [length, addChar, addNum]);
 
-  const copyPassword = useCallback(()=>{
+  const copyPassword = useCallback(() => {
     passwordRef.current?.select();
     window.navigator.clipboard.writeText(password);
-  },[password])
+  }, [password]);
 
   return (
     <>
@@ -48,30 +48,45 @@ function App() {
             readOnly
             ref={passwordRef}
           />
-          <button className=" bg-blue-800 text-white px-3 hover:bg-gray-500" onClick={copyPassword}>COPY</button>
+          <button
+            className=" bg-blue-800 text-white px-3 hover:bg-gray-500"
+            onClick={copyPassword}
+          >
+            COPY
+          </button>
         </div>
 
         <div className="flex text-sm justify-between py-4">
           <div className="flex">
-            <input type="range" min={4} max={40} value={length}className="cursor-pointer mx-1" 
-            onChange={(e)=>setLength(e.target.value)}/>
-            <label >Length: {length}</label>
+            <input
+              type="range"
+              min={4}
+              max={40}
+              value={length}
+              className="cursor-pointer mx-1"
+              onChange={(e) => setLength(e.target.value)}
+            />
+            <label>Length: {length}</label>
           </div>
           <div>
-            <input type="checkbox"
-             defaultChecked={addNum}
-             onChange={()=>{
-              setAddNum((prev)=>!prev)
-             }}/>
-             <label >Include Numbers</label>
+            <input
+              type="checkbox"
+              defaultChecked={addNum}
+              onChange={() => {
+                setAddNum((prev) => !prev);
+              }}
+            />
+            <label>Include Numbers</label>
           </div>
           <div>
-            <input type="checkbox"
-             defaultChecked={addChar}
-             onChange={()=>{
-              setAddChar((prev)=>!prev)
-             }}/>
-             <label >Include Characters</label>
+            <input
+              type="checkbox"
+              defaultChecked={addChar}
+              onChange={() => {
+                setAddChar((prev) => !prev);
+              }}
+            />
+            <label>Include Characters</label>
           </div>
         </div>
       </div>
@@ -79,4 +94,4 @@ function App() {
   );
 }
 
-export default App;
+export default PasswordGenerator;
