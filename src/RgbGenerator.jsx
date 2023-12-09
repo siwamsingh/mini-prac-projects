@@ -42,7 +42,6 @@ function RgbGenerator() {
                   max={255}
                   id="r-value"
                   value={r}
-                  defaultValue={255}
                   className="mx-2"
                   onChange={(e)=>{setr(e.target.value)}}
                 />
@@ -55,7 +54,6 @@ function RgbGenerator() {
                   max={255}
                   id="g-value"
                   value={g}
-                  defaultValue={255}
                   className="mx-2"
                   onChange={(e)=>{setg(e.target.value)}}
                 />
@@ -68,7 +66,6 @@ function RgbGenerator() {
                   max={255}
                   id="b-value"
                   value={b}
-                  defaultValue={255}
                   className="mx-2"
                   onChange={(e)=>{setb(e.target.value)}}
                 />
@@ -81,7 +78,6 @@ function RgbGenerator() {
                   max={100}
                   value={a}
                   id="a-value"
-                  defaultValue={100}
                   className="mx-2"
                   onChange={(e)=>{seta(e.target.value)}}
                 />
